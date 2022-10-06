@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Finlandica&display=swap');
+
+header {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    width: 100%;
+    height: 81px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.039), 0px 0.5px 1.5px rgba(0, 0, 0, 0.19);
+}
+
+.half-block {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    /* border: solid red 1px; */
+}
+
+#half-left {
+    justify-content: flex-end;
+}
+
+#half-right {
+    justify-content: flex-start;
+}
+
+.logo-cont {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 473px;
+    height: 100%;
+    /* background-color: pink; */
+}
+
+.logo-image {
+    display: block;
+    width: 44px;
+    height: 44px;
+    margin-right: 6px;
+    background-image: url('../../../public/Logo.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.title-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: fit-content;
+    margin-left: 8px;
+}
+
+p {
+    font-family: 'Finlandica', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    color: #222222;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 490px;
+    height: 100%;
+    /* background-color: bisque; */
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 29%;
+    height: 100%;
+    margin-left: 2px;
+    margin-right: 2px;
+    /* background-color: red; */
+}
+
+select {
+    border: none;
+    width: 90%;
+    height: 27px;
+    font-family: 'Finlandica', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 27px;
+    color: #222222; 
+}
+
