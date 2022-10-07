@@ -19,7 +19,8 @@ function Header() {
                         <div className='nav-item'>
                             <select>
                                 <option>Русский</option>
-                                <option>Олык Мари</option>
+                                <option>Олыкмарий</option>
+                                <option>Olykmarii</option>
                             </select>
                         </div>
                     </nav>
