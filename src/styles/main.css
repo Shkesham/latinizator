@@ -40,10 +40,11 @@ p {
 
 .language-option {
     display: flex;
+    flex-direction: column;
     position: relative;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    height: inherit;
     width: 48%;
     /* border: solid 1px gray; */
 }
@@ -57,12 +58,25 @@ p {
     width: 4%;
 }
 
+.change-button {
+    display: block;
+    width: 28px;
+    height: 22px;
+    cursor: pointer;
+    background-image: url('../icons/compare_arrows.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
 #left-option {
     margin-left: 2%;
+    width: 130px;
 }
 
 #right-option {
     margin-right: 2%;
+    width: 130px;
 }
 
 .text-block-cont {
@@ -77,6 +91,7 @@ p {
 
 .text-block {
     display: flex;
+    flex-direction: column;
     position: relative;
     height: 265px;
     width: 49%;
@@ -96,8 +111,8 @@ p {
 }
 
 textarea {
-    width: 100%;
-    height: 98%;
+    width: 99%;
+    height: 85%;
     border-radius: 13px;
     border: none;
     resize: none;
@@ -109,6 +124,34 @@ textarea {
     line-height: 27px;
     color: #222222;
 
+    /* background-color: red; */
+
+}
+
+.textarea-icon-cont {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    width: 97%;
+    margin-top: 1%;
+    /* background-color: green; */
+}
+
+.textarea-icon {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#keyboard {
+    background-image: url('../icons/keyboard.png');
+}
+
+#copy {
+    background-image: url('../icons/content_copy.png');
 }
 
 textarea:focus {

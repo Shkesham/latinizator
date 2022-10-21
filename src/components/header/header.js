@@ -1,6 +1,12 @@
+import Dropdown from '../dropdown/Dropdown'
+import { DropdownItem } from '../dropdown/Dropdown'
+import { useDispatch, useSelector } from 'react-redux'
 import './header.css'
 
 function Header() {
+
+    const selection = useSelector(state => state.selection)
+
     return(
         <header>
                 <div className='half-block' id='half-left'>
@@ -17,11 +23,16 @@ function Header() {
                         <div className='nav-item'><p>Наши преокты</p></div>
                         <div className='nav-item'><p>О Шкешам</p></div>
                         <div className='nav-item'>
-                            <select>
-                                <option>Русский</option>
-                                <option>Олыкмарий</option>
-                                <option>Olykmarii</option>
-                            </select>
+                            <Dropdown 
+                                id='left-option' 
+                                top={'122px'}
+                                current={selection.optionLanguage}
+                                type={'CHANGE_LANGUAGE_SELECTION'}
+                            >
+                                <DropdownItem>Русский</DropdownItem>
+                                <DropdownItem>Олыкмарий</DropdownItem>
+                                <DropdownItem>Olykmarii</DropdownItem>
+                            </Dropdown>
                         </div>
                     </nav>
                 </div>

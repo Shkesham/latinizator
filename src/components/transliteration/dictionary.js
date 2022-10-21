@@ -1,3 +1,4 @@
+// Дефолтный словарь
 const dictionary = new Map ([
     ['А', 'A'],
     ['Ӓ', 'Ä'],
@@ -13,8 +14,10 @@ const dictionary = new Map ([
     ['Й', 'J'],
     ['К', 'K'],
     ['Л', 'L'],
+    ['Љ', 'LJ'],
     ['М', 'M'],
     ['Н', 'N'],
+    ['Њ', 'NJ'],
     ['Ҥ', 'Ŋ'],
     ['О', 'O'],
     ['Ӧ', 'Ö'],
@@ -29,7 +32,7 @@ const dictionary = new Map ([
     ['Ц', 'C'],
     ['Ч', 'Č'],
     ['Ш', 'Š'],
-    ['Щ', ''],
+    ['Щ', 'Ŝ'],
     ['Ы', 'Y'],
     ['Ь', 'J'],
     ['Э', 'E'],
@@ -37,4 +40,19 @@ const dictionary = new Map ([
     ['Я', 'JA'],
 ])
 
-module.exports = dictionary
+// Обратный словарь
+const reversedDictionary = new Map()
+
+function reverse() {
+    dictionary.forEach((value, key) => 
+        reversedDictionary.set(value, key)
+    )
+}
+
+reverse()
+
+module.exports = {
+    dictionary,
+    reversedDictionary
+}
+

@@ -1,0 +1,81 @@
+.dropdown{
+   display: flex;
+   flex-direction: column;
+   z-index: 10; 
+   position: absolute;
+}
+
+.selected-item-cont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: 50px;
+    cursor: pointer;
+    
+    /* background-color: pink; */
+}
+
+.selected-item {
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+p {
+    font-family: 'Finlandica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22px;
+    color: #484848;
+
+    user-select: none;
+}
+
+.arrow-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 50px;
+}
+
+.arrow-down {
+    height: 8px;
+    width: 12.5px;
+    background-image: url('./down.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.option-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0.25px 3px rgba(0, 0, 0, 0.039), 0px 2.75px 9px rgba(0, 0, 0, 0.19);
+    border-radius: 15px;
+}
+
+
+.dropdownItem {
+    display: flex;
+    width: 100%;
+    height: 35px;
+    align-items: center;
+    justify-content: flex-start;
+    /* border: 1px solid black; */
+}
+
+.dropdownItem p {
+    cursor: pointer;
+}
+
+.dropdownItem p:hover {
+    color: #FF595E;
+}
