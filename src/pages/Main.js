@@ -3,6 +3,7 @@ import Header from '../components/header/header'
 import Dropdown from '../components/dropdown/Dropdown'
 import { DropdownItem } from '../components/dropdown/Dropdown'
 import '../styles/main.css'
+import '../styles/main_mobile.css'
 import { useDispatch, useSelector } from 'react-redux'
 import transliterate from '../components/transliteration/transliteration'
 

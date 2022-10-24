@@ -1,34 +1,53 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './Dropdown.css'
+import './Dropdown_mobile.css'
 
 // Выпадающий список
 function Dropdown(props) {
 
     const dispatch = useDispatch()
 
+    // Проверка мобильная или десктопная версия
+    function isMobile() {
+        if(window.matchMedia(
+            '(max-device-width: 640px)', 
+            '(min-device-width: 320px)', 
+            '(-webkit-min-device-pixel-ratio: 2)'
+        ).matches)
+            return true
+        else 
+            return false
+    }
+
     // Видимость списка элементов
     const [isVisible, setVisibility] = useState('hidden')
 
     // Открытие и закрытие списка
     const openListHandler = () => {
-        if(isVisible==='hidden')
-            setVisibility('visible')
-        else
-            setVisibility('hidden')
+        if(!isMobile()) {
+            if(isVisible==='hidden')
+                setVisibility('visible')
+            else
+                setVisibility('hidden')
+        }
+        else return
     }
 
     // Поменять выбор
     function changeSelection (value) {
-        if(value!==props.current) {
-            dispatch({type: props.type, payload: value})
-            openListHandler()
-            return
-        }
-        else {
-            openListHandler()
-            return 
-        }   
+        if(!isMobile()) {
+            if(value!==props.current) {
+                dispatch({type: props.type, payload: value})
+                openListHandler()
+                return
+            }
+            else {
+                openListHandler()
+                return 
+            }   
+        } 
+        else return      
     }
 
     const childrenWithProps = React.Children.map(props.children, child => {

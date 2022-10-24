@@ -1,0 +1,83 @@
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 640px)
+  and (-webkit-min-device-pixel-ratio: 2) 
+{ 
+    #half-right {
+        display: none;
+    }
+
+    .half-block {
+        width: 80%;
+    }
+
+    .logo-cont {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        /* background-color: pink; */
+    }
+
+    /* Мобильное меню */
+    .menu-btn-cont {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 20%;
+        /* background-color: red; */
+    }
+
+    /* Кнопка мобильного меню */
+    .menu-btn {
+        z-index: 6;
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 37px;
+        height: 30px;
+    }
+
+    /* Кнопка открыть */
+    .open-btn {
+        position: absolute;
+        z-index: 7;
+    }
+
+    .menu-line {
+        width: 30px;
+        border: 1px solid #000000;
+        border-radius: 20px;
+        margin-top: 7px;
+        margin-bottom: 7px;
+    }
+    
+    /* Кнопка закрыть */
+    .close-btn {
+        position: absolute;
+        z-index: 8;
+        margin-right: 32px;
+        margin-bottom: 2px;
+    }
+
+    .cross-line {
+        position: absolute;
+        width: 30px;
+        height: 0px;
+        border: 1px solid #000;
+        border-radius: 20px;
+    }
+
+    .cross-left {
+        transform: rotate(45deg);
+    }
+
+    .cross-right {
+        transform: rotate(-45deg);
+    }
+}

@@ -25,6 +25,10 @@ header {
     justify-content: flex-start;
 }
 
+.menu-btn {
+    display: none;
+}
+
 .logo-cont {
     display: flex;
     align-items: center;

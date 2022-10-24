@@ -1,11 +1,56 @@
+import { useState } from 'react'
 import Dropdown from '../dropdown/Dropdown'
 import { DropdownItem } from '../dropdown/Dropdown'
 import { useDispatch, useSelector } from 'react-redux'
 import './header.css'
+import './header_mobile.css'
 
 function Header() {
 
     const selection = useSelector(state => state.selection)
+
+    const [isVisible, setVisibility] = useState('hidden')
+    const [openIsVisible, setOpenVisibility] = useState('visible')
+    const [closeIsVisible, setCloseVisibility] = useState('hidden')
+
+    // Обработчик нажатия кнокпи меню
+    const menuBtnHandler = () => {
+
+        let menu = document.querySelector('.menu-cont')
+
+        if(openIsVisible==='visible') {
+            setOpenVisibility('hidden')
+            setCloseVisibility('visible')
+        }
+        else {
+            setOpenVisibility('visible')
+            setCloseVisibility('hidden')
+        }
+
+        if(isVisible==='hidden') {
+            setVisibility('visible')
+            menu.animate([
+                {transform: 'translateY(-100vh)'},
+                {transform: `translateY(0vh)`}
+            ], {
+                duration: 300,
+                iterations: 1,
+            })
+        }
+        else {
+            menu.animate([   
+                {transform: `translateY(0vh)`},
+                {transform: 'translateY(-100vh)'}
+            ], {
+                duration: 300,
+                iterations: 1,
+            })
+            setTimeout(() => {
+                setVisibility('hidden')
+            }, 300) 
+        }
+
+    }
 
     return(
         <header>
@@ -18,6 +63,22 @@ function Header() {
                     </div>
                 </div>
 
+                {/* Только для моб версии */}
+                <div className='menu-btn-cont'>
+                    <div className='menu-btn' onClick={menuBtnHandler}>
+                        <div className='open-btn' style={{visibility: openIsVisible}}>
+                            <div className='menu-line'/>
+                            <div className='menu-line'/>
+                            <div className='menu-line'/>
+                        </div>
+
+                        <div className='close-btn' style={{visibility: closeIsVisible}}>
+                            <div className='cross-line cross-left'/>
+                            <div className='cross-line cross-right'/>
+                        </div>      
+                    </div>
+                </div>
+            
                 <div className='half-block' id='half-right'>
                     <nav>
                         <div className='nav-item'><p>Наши преокты</p></div>
