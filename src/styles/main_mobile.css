@@ -14,11 +14,11 @@
     .text-block-cont {
         flex-direction: column;
         width: 100%;
-        height: 520px;
+        height: fit-content;
     }
 
     .text-block {
-        height: 247px;
+        height: 215px;
         width: 85%;
     }
 
@@ -28,9 +28,11 @@
 
     #text-block-left {
         margin-bottom: 5px;
+        margin-right: 0;
     }
     
     #text-block-right {
         margin-top: 5px;
+        margin-left: 0;
     }
 }

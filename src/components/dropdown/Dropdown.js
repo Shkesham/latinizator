@@ -10,11 +10,11 @@ function Dropdown(props) {
 
     // Проверка мобильная или десктопная версия
     function isMobile() {
-        if(window.matchMedia(
+        if( (window.matchMedia(
             '(max-device-width: 640px)', 
             '(min-device-width: 320px)', 
             '(-webkit-min-device-pixel-ratio: 2)'
-        ).matches)
+        ).matches) && !props.desktop)
             return true
         else 
             return false
@@ -58,9 +58,9 @@ function Dropdown(props) {
         <div className='dropdown' style={{marginTop: props.top}}>
             <div className='selected-item-cont' onClick={openListHandler}>
                 <div className='selected-item'>
-                    <p>{props.current}</p>
+                    <p style={{fontSize: props.font}}>{props.current}</p>
                 </div>
-                <div className='arrow-cont'>
+                <div className='arrow-cont' style={{display: props.displayMode}}>
                     <div className='arrow-down'></div>
                 </div>
             </div>

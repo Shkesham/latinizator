@@ -54,28 +54,14 @@ function Header() {
 
     return(
         <header>
+            <div className='main-block'>
+
                 <div className='half-block' id='half-left'>
                     <div className='logo-cont'>
                         <div className='logo-image'/>
                         <div className='title-cont'>
                             <p>Шкешам Латинизатор</p>
                         </div>
-                    </div>
-                </div>
-
-                {/* Только для моб версии */}
-                <div className='menu-btn-cont'>
-                    <div className='menu-btn' onClick={menuBtnHandler}>
-                        <div className='open-btn' style={{visibility: openIsVisible}}>
-                            <div className='menu-line'/>
-                            <div className='menu-line'/>
-                            <div className='menu-line'/>
-                        </div>
-
-                        <div className='close-btn' style={{visibility: closeIsVisible}}>
-                            <div className='cross-line cross-left'/>
-                            <div className='cross-line cross-right'/>
-                        </div>      
                     </div>
                 </div>
             
@@ -97,6 +83,54 @@ function Header() {
                         </div>
                     </nav>
                 </div>
+
+                {/* Только для моб версии */}
+                <div className='menu-btn-cont'>
+                    <div className='menu-btn' onClick={menuBtnHandler}>
+                        <div className='open-btn' style={{visibility: openIsVisible}}>
+                            <div className='menu-line'/>
+                            <div className='menu-line'/>
+                            <div className='menu-line'/>
+                        </div>
+
+                        <div className='close-btn' style={{visibility: closeIsVisible}}>
+                            <div className='cross-line cross-left'/>
+                            <div className='cross-line cross-right'/>
+                        </div>      
+                    </div>
+                </div>
+            </div>
+
+            <div className='menu-cont' style={{visibility: isVisible}}>
+                <div className='menu-language-selection'>
+                    <div className='lang-select'>
+                        <p>Выбрать язык</p>
+                    </div>
+                    <div className='dropdown-cont'>
+                        <Dropdown 
+                            id='left-option' 
+                            top={'40px'}
+                            current={selection.optionLanguage}
+                            type={'CHANGE_LANGUAGE_SELECTION'}
+                            desktop={true}
+                            displayMode={'flex'}
+                            font={'32px'}
+                        >
+                            <DropdownItem>Русский</DropdownItem>
+                            <DropdownItem>Олыкмарий</DropdownItem>
+                            <DropdownItem>Olykmarii</DropdownItem>
+                        </Dropdown>
+                    </div> 
+                </div>
+
+                <div className='menu-nav'>
+                    <p>Меню</p>
+                    <a href='#'>Наши проекты</a>
+                    <a href='#'>О Шкешам</a>
+                    <a href='#'>Поддержать</a>
+                </div>
+            </div>
+
         </header>
     )
 }

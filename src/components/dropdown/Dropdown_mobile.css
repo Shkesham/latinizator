@@ -3,10 +3,6 @@
   and (max-device-width: 640px)
   and (-webkit-min-device-pixel-ratio: 2) 
 {
-    .selected-item-cont {
-        width: 120px;
-    }
-
     .arrow-cont {
         display: none;
     }

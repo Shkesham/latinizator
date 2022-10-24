@@ -47,6 +47,12 @@ function reverse() {
     dictionary.forEach((value, key) => 
         reversedDictionary.set(value, key)
     )
+    reversedDictionary.delete('E')
+    reversedDictionary.set('E', 'Е')
+    reversedDictionary.set('JE', 'Е')
+    reversedDictionary.set('IE', 'Е')
+    reversedDictionary.set('IA', 'Я')
+    
 }
 
 reverse()
