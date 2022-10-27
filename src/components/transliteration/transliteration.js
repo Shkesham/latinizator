@@ -13,6 +13,8 @@ let prevChar = ''
 // Транслитерация
 export function transliterate(event, selection) {
 
+    console.log(prevChar)
+
     let processedData = '';
 
     [...event.target.value].forEach(char => {
@@ -147,7 +149,7 @@ function formatJoted(processedData, findedChar) {
 // Проверка смягчения н/л
 function checkSoft(prevChar, input, vocab) {
 
-    const softingChars = ['И', 'Е', 'и', 'е']
+    const softingChars = ['Е', 'е']
     const softedChars = ['Н', 'Л', 'н', 'л']
 
     if((softedChars.indexOf(prevChar) !== -1) && (softingChars.indexOf(input) !== -1)) {
@@ -179,7 +181,7 @@ function checkAfterVowels(prevChar, input, vocab) {
 // Если Е в начале слова
 function checkEfirst(prevChar, input) {
     if(input.toUpperCase() === 'Е' && (prevChar === '' || prevChar === ' '))
-        return 'j'+input
+        return 'j'+input        
     else
         return false
 }

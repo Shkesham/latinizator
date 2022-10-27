@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Finlandica&display=swap');
 
 header {
-    
     display: flex;
     position: relative;
     flex-direction: row;
@@ -13,6 +12,7 @@ header {
 .main-block {
     z-index: 12;
     display: flex;
+    position: relative;
     width: 100%;
     height: 100%;
     background-color: #fff;
@@ -21,6 +21,7 @@ header {
 .half-block {
     display: flex;
     align-items: center;
+    position: relative;
     height: 100%;
     width: 50%;
 }
@@ -83,10 +84,8 @@ nav {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 30%;
+    width: 34%;
     height: 100%;
-    margin-left: 2px;
-    margin-right: 2px;
 }
 
 select {
