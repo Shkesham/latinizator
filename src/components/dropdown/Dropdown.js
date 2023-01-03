@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import './Dropdown.css'
 import './Dropdown_mobile.css'
@@ -7,6 +7,21 @@ import './Dropdown_mobile.css'
 function Dropdown(props) {
 
     const dispatch = useDispatch()
+    const dropdown = useRef(null)
+
+    useEffect(() => {
+        // Закрыть выпадающий список при клике снаружи
+        function handleClickOutside(event) {
+            if (!dropdown.current.contains(event.target)) {
+                setVisibility('hidden')
+            }
+        }
+
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        }
+    }, [])
 
     // Проверка мобильная или десктопная версия
     function isMobile() {
@@ -39,23 +54,19 @@ function Dropdown(props) {
         if(!isMobile()) {
             if(value!==props.current) {
                 dispatch({type: props.type, payload: value})
-                openListHandler()
-                return
             }
-            else {
-                openListHandler()
-                return 
-            }   
+            openListHandler()  
+            return
         } 
         else return      
     }
 
     const childrenWithProps = React.Children.map(props.children, child => {
-          return React.cloneElement(child, { changeSelection })
+        return React.cloneElement(child, { changeSelection })
     })
 
     return(
-        <div className='dropdown' style={{marginTop: props.top}}>
+        <div className='dropdown' ref={dropdown} style={{marginTop: props.top}}>
             <div className='selected-item-cont' onClick={openListHandler}>
                 <div className='selected-item'>
                     <p style={{fontSize: props.font}}>{props.current}</p>
