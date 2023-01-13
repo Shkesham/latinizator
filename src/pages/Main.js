@@ -16,8 +16,9 @@ function Main() {
 
     // Обработчик изменения текста
     const translitHandler = event => {
-        let translitedData = transliterate(event, selection)
-        setLatin(translitedData)
+        const text = event.target.value
+        let translitedText = transliterate(text, selection)
+        setLatin(translitedText)
     }
 
     // Поменять местами выборы
