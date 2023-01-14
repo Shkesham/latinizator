@@ -1,16 +1,12 @@
 import { useState } from 'react'
 import Header from '../components/header/header'
-import Dropdown from '../components/dropdown/Dropdown'
-import { DropdownItem } from '../components/dropdown/Dropdown'
+import transliterate from '../components/transliteration/transliteration'
 import '../styles/main.css'
 import '../styles/main_mobile.css'
-import { useDispatch, useSelector } from 'react-redux'
-import transliterate from '../components/transliteration/transliteration'
 
 function Main() {
 
-    const dispatch = useDispatch()
-    const selection = useSelector(state => state.selection)
+    const selection = 'Кириллица'
 
     const [latin, setLatin] = useState('')
 
@@ -19,11 +15,6 @@ function Main() {
         const text = event.target.value
         let translitedText = transliterate(text, selection)
         setLatin(translitedText)
-    }
-
-    // Поменять местами выборы
-    const replaceSelections = () => {
-        dispatch({type: 'REPLACE_TRANSLITERATION'})
     }
 
     // Скопировать текст
@@ -40,31 +31,13 @@ function Main() {
 
                 <div className='select-cont'>
                     <div className='language-option'>
-                        <Dropdown 
-                            id='left-option' 
-                            top={'91px'} 
-                            current={selection.optionLeft}
-                            type={'CHANGE_LEFT_SELECTION'}
-                        >
-                            <DropdownItem>Кириллица</DropdownItem>
-                            <DropdownItem>Латиница</DropdownItem>
-                        </Dropdown>
+                        <p>Кириллица</p>
                     </div>
 
-                    <div className='change-options'>
-                        <div className='change-button' onClick={replaceSelections}></div>
-                    </div>
+                    <div className='change-options'></div>
 
                     <div className='language-option'>
-                        <Dropdown 
-                            id='right-option' 
-                            top={'91px'} 
-                            current={selection.optionRight}
-                            type={'CHANGE_RIGHT_SELECTION'}
-                        >
-                            <DropdownItem>Латиница</DropdownItem>
-                            <DropdownItem>Кириллица</DropdownItem>
-                        </Dropdown>
+                        <p>Латиница</p>
                     </div>
                 </div>
 

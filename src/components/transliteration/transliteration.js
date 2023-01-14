@@ -33,7 +33,7 @@ function findSymbol(prevChar, input, nextChar, selection) {
     let vocab
 
     // Проверка, какой словарь использовать
-    if(selection.optionLeft === 'Кириллица')
+    if(selection === 'Кириллица')
         vocab = collections.dictionary
     else
         vocab = collections.reversedDictionary
@@ -43,7 +43,6 @@ function findSymbol(prevChar, input, nextChar, selection) {
     if (typeof value !== 'undefined')
     {
 
-        // let softed = checkSoft(prevChar, input, vocab)
         let vowels = checkAfterVowels(prevChar, input, vocab)
         let eFirst = checkEfirst(prevChar, input)
         let jLast = checkJlast(input, nextChar)
@@ -56,8 +55,6 @@ function findSymbol(prevChar, input, nextChar, selection) {
                 return newValue
             }
             else {    
-                // if (softed)
-                //     return softed
                 if (vowels)
                     return vowels
                 else if (eFirst)
@@ -70,8 +67,6 @@ function findSymbol(prevChar, input, nextChar, selection) {
         }
         // Если нижний регистр
         else {
-            // if(softed)
-            //     return softed.toLocaleLowerCase()
             if (vowels)
                 return vowels.toLocaleLowerCase()
             else if (eFirst)
@@ -91,19 +86,6 @@ function findSymbol(prevChar, input, nextChar, selection) {
 }
 
 /* Правила КИРИЛЛИЦА => ЛАТИНИЦА */ 
-
-// Проверка смягчения н/л
-// function checkSoft(prevChar, input, vocab) {
-
-//     const softingChars = ['Е', 'е']
-//     const softedChars = ['Н', 'Л', 'н', 'л']
-
-//     if((softedChars.indexOf(prevChar) !== -1) && (softingChars.indexOf(input) !== -1)) {
-//         let value = vocab.get(input.toUpperCase())
-//         return 'J'+value
-//     }
-//     else return false
-// }
 
 // Находится ли йотированная после гласной
 function checkAfterVowels(prevChar, input, vocab) {
@@ -139,56 +121,6 @@ function checkJlast(input, nextChar) {
     else
         return false
 }
-
-/* Правила ЛАТИНИЦА => КИРИЛЛИЦА */ 
-
-// Проверить, явлется ли сочетание букв йотированным
-// function checkJoted(prevChar, input, vocab) {
-
-//     const jotedChars = ['O', 'U', 'A', 'E', 'o', 'u', 'a', 'e']
-//     const prevChars = ['J', 'I', 'j', 'i']
-
-//     if((prevChars.indexOf(prevChar) !== -1) && (jotedChars.indexOf(input) !== -1)) {
-
-//         let substr = prevChar + input
-//         let res = vocab.get(substr.toUpperCase())
-
-//         if(prevChar==='J' || prevChar==='I')
-//             return res.toUpperCase()
-//         if(prevChar==='j' || prevChar==='i')
-//             return res.toLowerCase()
-            
-//     }
-//     else return false
-    
-// }
-
-// Форматированние йотированных сочетаний символов
-// function formatJoted(processedData, findedChar) {
-
-//     const jotedChars = ['Ё', 'Ю', 'Я', 'Е', 'ё', 'ю', 'я', 'е']
-//     const softingChars = ['Ь', 'И', 'ь', 'и']
-//     const ulumatedChars = ['Ӧ', 'Ӱ', 'ӧ', 'ӱ']
-
-//     // Удалить softingChars для йотированных звуков
-//     if( jotedChars.indexOf(findedChar) !== -1 && softingChars.indexOf(processedData[processedData.length-2]) !== -1 ) {
-//         processedData = processedData.slice(0, processedData.length-2) + processedData.slice(processedData.length-1, processedData.length)
-//     }
-//     else if
-//     // Заменить softingChars на Й для букв с улуматом
-//     (ulumatedChars.indexOf(findedChar) !== -1 && softingChars.indexOf(processedData[processedData.length-2]) !== -1 ) 
-//     {
-//         let isUpperCase = findedChar.toUpperCase()===findedChar
-//         let jChar = 'й'
-
-//         if(isUpperCase)
-//             jChar = 'Й'
-
-//         processedData = processedData.slice(0, processedData.length-2) + jChar + processedData.slice(processedData.length-1, processedData.length)
-//     }
-
-//     return processedData
-// }
 
 export default transliterate
     

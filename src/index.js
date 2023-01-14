@@ -1,15 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from 'react'
+import ReactDOM from 'react-dom/client'
 import { configureStore } from '@reduxjs/toolkit'
-import { Provider } from 'react-redux';
-import './index.css';
-import Main from './pages/Main';
-import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux'
+import Main from './pages/Main'
+import reportWebVitals from './reportWebVitals'
+import './index.css'
 
 // Дефолтные состояния хранилища
 const defaultState = {
-  optionLeft: 'Кириллица',
-  optionRight: 'Латиница',
   optionLanguage: 'Русский'
 }
 
@@ -17,20 +15,11 @@ const defaultState = {
 const selectReducer = (state = defaultState, action) => {
   switch (action.type) {
     
-    case 'CHANGE_LEFT_SELECTION':
-      return {...state, optionRight: state.optionLeft, optionLeft: action.payload}
-    case 'CHANGE_RIGHT_SELECTION':
-      return {...state, optionLeft: state.optionRight, optionRight: action.payload}
-
-    case 'REPLACE_TRANSLITERATION':
-      return {...state, optionLeft: state.optionRight, optionRight: state.optionLeft}
-
     case 'CHANGE_LANGUAGE_SELECTION':
       return {...state, optionLanguage: action.payload}
 
     default:
       return state
-
   }
 }
 
